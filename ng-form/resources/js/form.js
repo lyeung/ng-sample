@@ -1,5 +1,6 @@
 var myApp = angular.module("myApp", []);
 myApp.controller("FormController", function($scope) {
+	$scope.contactRows = [];
 	var newContact = function() {
 		return {
 			firstName: "",
@@ -12,6 +13,8 @@ myApp.controller("FormController", function($scope) {
 	
 	$scope.save  = function() {
 		console.log("saving contact: firstName=" + $scope.contact.firstName + ", lastName=" + $scope.contact.lastName);
+		$scope.contactRows.push($scope.contact);
+		console.log($scope.contactRows.length);
 	}
 
 	$scope.cancel = function() {
